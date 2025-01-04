@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="sort-only">
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0" demote-non-dropping-particle="sort-only">
   <info>
-    <title>Custom Bibliography Style</title>
-    <id>http://www.zotero.org/styles/custom-bibliography-style</id>
-    <link href="http://www.zotero.org/styles/custom-bibliography-style" rel="self"/>
+    <title>Custom Canvas Bibliography Style</title>
+    <id>http://www.zotero.org/styles/custom-canvas-bibliography-style</id>
+    <link href="http://www.zotero.org/styles/custom-canvas-bibliography-style" rel="self"/>
     <author>
       <name>Your Name</name>
     </author>
-    <summary>Custom style for bibliography with author, year, title (italicized), publisher, and city.</summary>
+    <summary>Custom style for bibliography using a canvas-like layout with author, year, title (italicized), publisher, and city.</summary>
   </info>
 
   <locale xml:lang="en">
@@ -37,7 +37,7 @@
     </choose>
   </macro>
 
-  <!-- Publisher macro -->
+  <!-- Publisher and City macro -->
   <macro name="publisher">
     <choose>
       <if type="book" match="any">
@@ -52,14 +52,17 @@
   <!-- Bibliography Layout -->
   <bibliography entry-spacing="0" second-field-align="flush">
     <layout>
-      <!-- Author(s) -->
-      <text macro="author" suffix=", "/>
-      <!-- Year -->
-      <text macro="issued" suffix=". "/>
-      <!-- Title (italicized for books) -->
-      <text macro="title" suffix=". "/>
-      <!-- Publisher and City -->
-      <text macro="publisher"/>
+      <!-- Canvas-like Layout: Display elements with structured visual control -->
+      <group delimiter=" ">
+        <!-- Author -->
+        <text macro="author" suffix=", "/>
+        <!-- Year -->
+        <text macro="issued" suffix=". "/>
+        <!-- Title (italicized) -->
+        <text macro="title" suffix=". "/>
+        <!-- Publisher and City -->
+        <text macro="publisher"/>
+      </group>
     </layout>
   </bibliography>
 </style>
