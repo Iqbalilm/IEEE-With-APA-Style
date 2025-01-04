@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="sort-only">
+  <info>
+    <title>Custom Bibliography Style</title>
+    <id>http://www.zotero.org/styles/custom-bibliography-style</id>
+    <link href="http://www.zotero.org/styles/custom-bibliography-style" rel="self"/>
+    <author>
+      <name>Your Name</name>
+    </author>
+    <summary>Custom style for bibliography with author, year, title (italicized), publisher, and city.</summary>
+  </info>
+
+  <locale xml:lang="en">
+    <date form="text">
+      <date-part name="year" form="numeric"/>
+    </date>
+  </locale>
+
+  <!-- Author macro -->
+  <macro name="author">
+    <names variable="author">
+      <name and="text" et-al-min="7" et-al-use-first="1" initialize-with=". "/>
+      <label form="short" prefix=", " text-case="capitalize-first"/>
+      <et-al font-style="italic"/>
+    </names>
+  </macro>
+
+  <!-- Title macro (italicized for books) -->
+  <macro name="title">
+    <choose>
+      <if type="book" match="any">
+        <text variable="title" font-style="italic"/>
+      </if>
+      <else>
+        <text variable="title"/>
+      </else>
+    </choose>
+  </macro>
+
+  <!-- Publisher macro -->
+  <macro name="publisher">
+    <choose>
+      <if type="book" match="any">
+        <group delimiter=": ">
+          <text variable="publisher"/>
+          <text variable="publisher-place"/>
+        </group>
+      </if>
+    </choose>
+  </macro>
+
+  <!-- Bibliography Layout -->
+  <bibliography entry-spacing="0" second-field-align="flush">
+    <layout>
+      <!-- Author(s) -->
+      <text macro="author" suffix=", "/>
+      <!-- Year -->
+      <text macro="issued" suffix=". "/>
+      <!-- Title (italicized for books) -->
+      <text macro="title" suffix=". "/>
+      <!-- Publisher and City -->
+      <text macro="publisher"/>
+    </layout>
+  </bibliography>
+</style>
