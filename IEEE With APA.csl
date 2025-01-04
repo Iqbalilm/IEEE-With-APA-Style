@@ -1,0 +1,47 @@
+<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="sort-only">
+<info>
+<title>Modified IEEE</title>
+<id>http://www.zotero.org/styles/modified-ieee</id>
+<link href="http://www.zotero.org/styles/ieee" rel="self"/>
+<author>
+<name>Custom Author</name>
+<email>example@email.com</email>
+</author>
+<category citation-format="numeric"/>
+<category field="engineering"/>
+<summary>Modified IEEE style with author, year, italicized title, publisher, and city.</summary>
+<updated>2025-01-04T14:30:00+00:00</updated>
+</info>
+<!-- Bibliography -->
+<bibliography entry-spacing="0" second-field-align="flush">
+<layout>
+    <!-- Citation Number -->
+    <text variable="citation-number" prefix="[" suffix="]"/>
+    <!-- Author(s) -->
+    <text macro="author" suffix=", "/>
+    <!-- Year -->
+    <text macro="issued" suffix=", "/>
+    <!-- Title -->
+    <text variable="title" font-style="italic" suffix=", "/>
+    <!-- Publisher and City -->
+    <group delimiter=", ">
+        <text variable="publisher"/>
+        <text variable="publisher-place"/>
+    </group>
+    <!-- End with a period -->
+    <text value="."/>
+</layout>
+</bibliography>
+<!-- Macros -->
+<macro name="author">
+<names variable="author">
+    <name and="text" et-al-min="7" et-al-use-first="1" initialize-with=". "/>
+    <et-al font-style="italic"/>
+</names>
+</macro>
+<macro name="issued">
+<date variable="issued">
+    <date-part name="year"/>
+</date>
+</macro>
+</style>
